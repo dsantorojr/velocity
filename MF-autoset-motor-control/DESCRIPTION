@@ -1,0 +1,24 @@
+<p style="font-size:16px"><b>Maker Faire AutoSet Motor Control</b></p>
+<p style="font-size:14px">Velocity Robotcs.<br>
+Daniel Santoro<br><br></p>
+
+<b>Description:</b><br>
+Motor Control and power for AutoSet - first revision (Maker Faire).
+<ul>
+<li> 24V comes in on terminal blocks</li>
+<li> connects to Rasberry PI 3 via 40 pin header</li>
+<li> provides 5V to power PI via the 40 pin header</li>
+<li> provides 3.3V to the sensor board via terminal blocks</li>
+<li> optional comparator to buffer / convert sensing signals from the sensor board</li>
+<li> motor controller to provide 24V PWM to motor (via terminal blocks)</li>
+</ul>
+<br>
+<b> NOTES:</b>
+<ul>
+<li>Power to PI does not work - browns out when PI turns on. Not sure why, but not critical. Will power PI via USB.</li>
+<li>Comparator not populated.</li>
+<li>WIth the 5V problem, that LDO is not included. 5V to VREF on motor controller pulled from 3.3V rail </li>
+<li>PWM signals used PULL DOWN - not pull up.</li>
+<li>Resistor connected to LSS pin of motor controller is <b>too big</b>. This is a current limiting resistor and should be sized appropriately for the motor, not straight from the datasheet (<1ohm for sure)<\li>
+<li>Resistors on the comparator are incorrect for the hysteresis needed.<\li>
+</ul>

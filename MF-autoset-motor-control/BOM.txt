@@ -1,0 +1,23 @@
+Partlist exported from /Users/danielsantoro/Documents/eagle/velocity/power-motor/power-motor.sch at 9/14/16 1:04 AM
+
+Qty Value              Device             Package         Parts                     Description DKPN            
+2   0                  R0805              R0805           R8, R12                               311-0.0ARCT-ND X 
+5   0.1u               C0805              C0805           C3, C4, C7, C8, C9                    1276-6468-1-ND X 
+1   0.22u              C0805              C0805           C11                                   1276-1093-1-ND X
+6   100k               R0805              R0805           R5, R6, R9, R10, R14, R15             311-100KCRCT-ND X
+1   100u               C-POL8             CPOL-8          C10                                   1189-1860-ND X  
+4   10k                R0805              R0805           R16, R17, R18, R19                    311-10.0KCRCT-ND X
+4   10u                C0805              C0805           C1, C2, C5, C6                        490-5523-1-ND X   
+2   121                R0805              R0805           R1, R3                                311-121CRCT-ND X 
+1   200                R0805              R0805           R4                                    311-200ARCT-ND X
+1   200                R2512              R2512           R13                                   541-200RCT-ND X 
+1   365                R0805              R0805           R2                                    311-365CRCT-ND X  
+2   576k               R0805              R0805           R7, R11                               311-576KCRCT-ND X
+1   A4953ELJ           A4953ELJ           SOIC8           U4                                    620-1428-1-ND X
+1   L293DT             L293DT             SOIC8           U3                                    497-8079-1-ND X
+2   LD1085CDT-R        LD1085CDT-R        TO252           U1, U2                                497-3418-1-ND X 
+1   RECT_2X20A         RECT_2X20A         RECT_2X20_0.1   J1                                    S9200-ND X     
+3   TERM_1X2_0.1       TERM_1X2_0.1       TERM_1X2_0.1    J5, J6, J7                            ED10561-ND X     
+1   TERM_1X4_0.1       TERM_1X4_0.1       TERM_1X4_0.1    J3                                    ED10563-ND X    
+1   WIRE2BOARD_1X2     WIRE2BOARD_1X2     WIRE2BOARD_1X2  J4                                                    
+1   WIRE2BOARD_1X4WIDE WIRE2BOARD_1X4WIDE WIRE2BOARD_1X4W J2                                                    
