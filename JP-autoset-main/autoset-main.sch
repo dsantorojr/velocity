@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -680,6 +680,22 @@ In this library the device names are the same as the pin names of the symbols, t
 <text x="0" y="2.6" size="1.27" layer="25">&gt;NAME</text>
 <text x="0" y="1.1" size="1.27" layer="27">&gt;VALUE</text>
 </package>
+<package name="SOT23">
+<description>&lt;b&gt;SOT-23&lt;/b&gt;</description>
+<smd name="3" x="0" y="1.1" dx="0.65" dy="1" layer="1"/>
+<smd name="2" x="-0.955" y="-1.1" dx="0.65" dy="1" layer="1"/>
+<smd name="1" x="0.955" y="-1.1" dx="0.65" dy="1" layer="1"/>
+<text x="-1.905" y="1.905" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1.905" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.2286" y1="0.7112" x2="0.2286" y2="1.2954" layer="51"/>
+<rectangle x1="0.7112" y1="-1.2954" x2="1.1684" y2="-0.7112" layer="51"/>
+<rectangle x1="-1.1684" y1="-1.2954" x2="-0.7112" y2="-0.7112" layer="51"/>
+<wire x1="0.4826" y1="0.6604" x2="1.4224" y2="0.6604" width="0.127" layer="21"/>
+<wire x1="1.4224" y1="0.6604" x2="1.4224" y2="-0.6604" width="0.127" layer="21"/>
+<wire x1="0.4826" y1="-0.6604" x2="-0.4826" y2="-0.6604" width="0.127" layer="21"/>
+<wire x1="-0.4826" y1="0.6604" x2="-1.4224" y2="0.6604" width="0.127" layer="21"/>
+<wire x1="-1.4224" y1="0.6604" x2="-1.4224" y2="-0.6604" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="REFL">
@@ -712,6 +728,17 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="3.81" y1="-3.81" x2="-7.62" y2="-3.81" width="0.254" layer="94"/>
 <wire x1="-7.62" y1="-3.81" x2="-7.62" y2="3.81" width="0.254" layer="94"/>
 </symbol>
+<symbol name="HALL">
+<pin name="VDD" x="7.62" y="2.54" length="short" rot="R270"/>
+<pin name="GND" x="7.62" y="-17.78" length="short" rot="R90"/>
+<pin name="OUT" x="17.78" y="-7.62" length="short" rot="R180"/>
+<wire x1="0" y1="0" x2="0" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="0" y1="-15.24" x2="15.24" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-15.24" x2="15.24" y2="0" width="0.254" layer="94"/>
+<wire x1="15.24" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+<text x="10.16" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<text x="10.16" y="0.508" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="QRE1113" prefix="U">
@@ -725,6 +752,23 @@ In this library the device names are the same as the pin names of the symbols, t
 <connect gate="G$1" pin="DA" pad="1"/>
 <connect gate="G$1" pin="DC" pad="2"/>
 <connect gate="G$1" pin="E" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="DRV5053" prefix="U">
+<gates>
+<gate name="G$1" symbol="HALL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT23">
+<connects>
+<connect gate="G$1" pin="GND" pad="3"/>
+<connect gate="G$1" pin="OUT" pad="2"/>
+<connect gate="G$1" pin="VDD" pad="1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -1801,10 +1845,30 @@ TS-003</description>
 <part name="SUPPLY68" library="supply2" deviceset="VDD" device=""/>
 <part name="SUPPLY83" library="supply2" deviceset="VDD" device=""/>
 <part name="SUPPLY97" library="supply2" deviceset="VDD" device=""/>
-<part name="SW1" library="dsantoro-sw" deviceset="GPTS203211B" device=""/>
+<part name="SW1" library="dsantoro-sw" deviceset="GPTS203211B" device="">
+<attribute name="DKPN" value="CW181-ND"/>
+</part>
 <part name="R56" library="dsantoro-discrete" deviceset="R" device="0603" value="0">
 <attribute name="DKPN" value="541-2779-1-ND"/>
 </part>
+<part name="U7" library="dsantoro-sens" deviceset="DRV5053" device=""/>
+<part name="C28" library="dsantoro-discrete" deviceset="C" device="0603" value="0.1u">
+<attribute name="DKPN" value="490-1519-1-ND"/>
+</part>
+<part name="C29" library="dsantoro-discrete" deviceset="C" device="0603" value="0.1u">
+<attribute name="DKPN" value="490-1519-1-ND"/>
+</part>
+<part name="SUPPLY42" library="supply2" deviceset="GND" device=""/>
+<part name="SUPPLY111" library="supply2" deviceset="GND" device=""/>
+<part name="SUPPLY112" library="supply2" deviceset="VDD" device=""/>
+<part name="SUPPLY113" library="supply2" deviceset="GND" device=""/>
+<part name="R57" library="dsantoro-discrete" deviceset="R" device="0603" value="200">
+<attribute name="DKPN" value="RHM200DCT-ND"/>
+</part>
+<part name="C30" library="dsantoro-discrete" deviceset="C" device="0603" value="0.1u">
+<attribute name="DKPN" value="490-1519-1-ND"/>
+</part>
+<part name="SUPPLY114" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2100,7 +2164,9 @@ Refrain from using incase these services are needed.</text>
 <instance part="SUPPLY68" gate="G$1" x="358.14" y="231.14"/>
 <instance part="SUPPLY83" gate="G$1" x="312.42" y="157.48"/>
 <instance part="SUPPLY97" gate="G$1" x="358.14" y="157.48"/>
-<instance part="SW1" gate="G$1" x="22.86" y="220.98" rot="MR0"/>
+<instance part="SW1" gate="G$1" x="22.86" y="220.98" rot="MR0">
+<attribute name="DKPN" x="22.86" y="220.98" size="1.778" layer="96" rot="MR0" display="off"/>
+</instance>
 <instance part="R56" gate="G$1" x="24.13" y="228.6" rot="R180">
 <attribute name="DKPN" x="24.13" y="228.6" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
@@ -2953,6 +3019,13 @@ Refrain from using incase these services are needed.</text>
 <junction x="33.02" y="220.98"/>
 </segment>
 </net>
+<net name="VMAG" class="0">
+<segment>
+<pinref part="P2" gate="G$1" pin="6"/>
+<wire x1="22.86" y1="139.7" x2="35.56" y2="139.7" width="0.1524" layer="91"/>
+<label x="27.94" y="139.7" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -3156,6 +3229,24 @@ Refrain from using incase these services are needed.</text>
 </instance>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>
 <instance part="FRAME2" gate="G$2" x="180.34" y="7.62"/>
+<instance part="U7" gate="G$1" x="35.56" y="35.56"/>
+<instance part="C28" gate="G$1" x="27.94" y="30.48">
+<attribute name="DKPN" x="27.94" y="30.48" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C29" gate="G$1" x="17.78" y="30.48">
+<attribute name="DKPN" x="17.78" y="30.48" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="SUPPLY42" gate="GND" x="17.78" y="20.32"/>
+<instance part="SUPPLY111" gate="GND" x="27.94" y="20.32"/>
+<instance part="SUPPLY112" gate="G$1" x="43.18" y="45.72"/>
+<instance part="SUPPLY113" gate="GND" x="43.18" y="12.7"/>
+<instance part="R57" gate="G$1" x="60.96" y="27.94">
+<attribute name="DKPN" x="60.96" y="27.94" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C30" gate="G$1" x="68.58" y="22.86">
+<attribute name="DKPN" x="68.58" y="22.86" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="SUPPLY114" gate="GND" x="68.58" y="12.7"/>
 </instances>
 <busses>
 </busses>
@@ -3272,6 +3363,26 @@ Refrain from using incase these services are needed.</text>
 <segment>
 <pinref part="U1" gate="A" pin="V-"/>
 <pinref part="SUPPLY5" gate="GND" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C29" gate="G$1" pin="2"/>
+<pinref part="SUPPLY42" gate="GND" pin="GND"/>
+<wire x1="17.78" y1="22.86" x2="17.78" y2="25.4" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C28" gate="G$1" pin="2"/>
+<pinref part="SUPPLY111" gate="GND" pin="GND"/>
+<wire x1="27.94" y1="22.86" x2="27.94" y2="25.4" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U7" gate="G$1" pin="GND"/>
+<pinref part="SUPPLY113" gate="GND" pin="GND"/>
+<wire x1="43.18" y1="15.24" x2="43.18" y2="17.78" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C30" gate="G$1" pin="2"/>
+<pinref part="SUPPLY114" gate="GND" pin="GND"/>
+<wire x1="68.58" y1="15.24" x2="68.58" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$9" class="0">
@@ -3536,6 +3647,20 @@ Refrain from using incase these services are needed.</text>
 <pinref part="R3" gate="G$1" pin="1"/>
 <pinref part="SUPPLY3" gate="G$1" pin="VDD"/>
 </segment>
+<segment>
+<pinref part="U7" gate="G$1" pin="VDD"/>
+<pinref part="SUPPLY112" gate="G$1" pin="VDD"/>
+<wire x1="43.18" y1="43.18" x2="43.18" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="C28" gate="G$1" pin="1"/>
+<wire x1="43.18" y1="40.64" x2="43.18" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="40.64" x2="27.94" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="40.64" x2="27.94" y2="33.02" width="0.1524" layer="91"/>
+<junction x="43.18" y="40.64"/>
+<pinref part="C29" gate="G$1" pin="1"/>
+<wire x1="27.94" y1="40.64" x2="17.78" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="40.64" x2="17.78" y2="33.02" width="0.1524" layer="91"/>
+<junction x="27.94" y="40.64"/>
+</segment>
 </net>
 <net name="N$44" class="0">
 <segment>
@@ -3640,6 +3765,24 @@ Refrain from using incase these services are needed.</text>
 <pinref part="U2" gate="A" pin="+IN"/>
 <wire x1="223.52" y1="147.32" x2="220.98" y2="147.32" width="0.1524" layer="91"/>
 <junction x="220.98" y="147.32"/>
+</segment>
+</net>
+<net name="N$25" class="0">
+<segment>
+<pinref part="U7" gate="G$1" pin="OUT"/>
+<pinref part="R57" gate="G$1" pin="1"/>
+<wire x1="53.34" y1="27.94" x2="55.88" y2="27.94" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="VMAG" class="0">
+<segment>
+<pinref part="C30" gate="G$1" pin="1"/>
+<wire x1="68.58" y1="25.4" x2="68.58" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="R57" gate="G$1" pin="2"/>
+<wire x1="68.58" y1="27.94" x2="66.04" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="27.94" x2="81.28" y2="27.94" width="0.1524" layer="91"/>
+<junction x="68.58" y="27.94"/>
+<label x="71.12" y="27.94" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
