@@ -2413,9 +2413,9 @@ Refrain from using incase these services are needed.</text>
 <pinref part="R51" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<pinref part="P4" gate="G$1" pin="7"/>
-<wire x1="76.2" y1="190.5" x2="60.96" y2="190.5" width="0.1524" layer="91"/>
-<label x="60.96" y="190.5" size="1.778" layer="95"/>
+<pinref part="P4" gate="G$1" pin="8"/>
+<wire x1="60.96" y1="187.96" x2="76.2" y2="187.96" width="0.1524" layer="91"/>
+<label x="60.96" y="187.96" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="LED3" class="0">
@@ -2849,9 +2849,9 @@ Refrain from using incase these services are needed.</text>
 <pinref part="R40" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<pinref part="P4" gate="G$1" pin="8"/>
-<wire x1="60.96" y1="187.96" x2="76.2" y2="187.96" width="0.1524" layer="91"/>
-<label x="60.96" y="187.96" size="1.778" layer="95"/>
+<pinref part="P4" gate="G$1" pin="7"/>
+<wire x1="76.2" y1="190.5" x2="60.96" y2="190.5" width="0.1524" layer="91"/>
+<label x="60.96" y="190.5" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$6" class="0">
