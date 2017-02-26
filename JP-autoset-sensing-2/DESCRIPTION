@@ -1,0 +1,20 @@
+<p style="font-size:16px"><b>Maker Faire AutoSet Sensing</b></p>
+<p style="font-size:14px">Velocity Robotcs.<br>
+Daniel Santoro<br><br></p>
+
+<b>Description:</b><br>
+Optical sensing for AutoSet - first revision (Maker Faire).
+<ul>
+<li> power comes in on terminal blocks</li>
+<li> three sensors - two for sensing, one for compensaiton</li>
+<li> ambient light compensation performed via two differential op-amps</li>
+<li> conversion to digial signal via comparators with hysteresis</li>
+<li> digial signal travels to motor control board via terminal blocks.</li>
+</ul>
+<br>
+<b> NOTES:</b>
+<ul>
+<li>Sensors should be position such that the direction of travel is orthgonal to the incedent angle of reflection. This was incorrect on the first revision of the dual-encoding board, and degrades the ability to sense accurately.</li>
+<li>Resistors on the comparators are not correct for the hysteresis needed.</li>
+<li>Compensation sesnor and op-amps not populated (and therefore not tested.</li>
+</ul>
